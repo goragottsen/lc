@@ -39,7 +39,7 @@ class App extends Component{
           value={this.state.input}/>
         <p>{this.state.input}</p>
         <Validation inputLength={this.state.input.length} />
-        <p>Start typing and click any char to remove it from the input</p>
+        <p>Start typing and click any char below to remove it from the input</p>
         {charList}
       </div>
     );
