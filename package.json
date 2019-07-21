@@ -2,7 +2,7 @@
   "name": "lc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://myname.github.io/lc",
+  "homepage": "http://goragottsen.github.io/lc",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
