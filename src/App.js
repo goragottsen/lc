@@ -2,30 +2,45 @@ import React, {Component} from 'react';
 import './App.css';
 
 import Validation from './Validation/Validation';
+import Char from './Char/Char';
 
 class App extends Component{
 
   state = {
-    input: [
-      {length: 0}
-    ]
+    input: '',
+  }
+
+  inputChangeHandler = (event) => {
+    this.setState({input: event.target.value});
+  }
+
+  deleteCharHandler = (index) => {
+    const text = this.state.input.split('');
+    text.splice(index, 1);
+    const newText = text.join('');
+    this.setState({input: newText});
   }
   
-  outputLength = (event) => {
-    const input = [...this.state.input]
-    const inputString = event.target.value;
-    input.length = inputString.length;
-    this.setState({input: input});
-  }
   
   render(){
+    const charList = this.state.input.split('').map((ch, index) => {
+      return <Char 
+        character={ch} 
+        key={index}
+        clicked={() => this.deleteCharHandler(index)}
+        />;
+    });
+
     return (
       <div className="App">
         <input 
-          onChange={this.outputLength}
-          type="text"/>
-        <p>{this.state.input.length}</p>
-        <Validation length={this.state.input.length} />
+          onChange={this.inputChangeHandler}
+          type="text"
+          value={this.state.input}/>
+        <p>{this.state.input}</p>
+        <Validation inputLength={this.state.input.length} />
+        <p>Start typing and click any char to remove it from the input</p>
+        {charList}
       </div>
     );
   }

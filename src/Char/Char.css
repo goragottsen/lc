@@ -1,0 +1,9 @@
+.Char{
+    display: inline-block;
+    padding: 16px;
+    text-align: center;
+    margin: 16px;
+    border: 1px solid rgb(88, 189, 223);
+    white-space: pre;
+    border-radius: 5px;
+}

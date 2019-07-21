@@ -1,19 +1,19 @@
 import React from 'react';
 
 const validation = (props) => {
-    let output = null;
-    if(props.length < 3){
-        output = "Input text is too short :(";
-    }else if(props.length > 20){
-        output = "Input text is too long :(";
-    }else{
-        output = "Input text is perfectly fine :)";
+    let message = "Input text is perfectly fine :)";
+    if(props.inputLength < 3){
+        message = "Input text is too short :(";
+    }else if(props.inputLength > 20){
+        message = "Input text is too long :(";
     }
+    const style = {
+        color: "rgb(88, 189, 223)"
+    }
+
     return(
         <div className="Validation">
-
-            <p>{output}</p>
-
+            <p style={style}>{message}</p>
         </div>
     );
 }
